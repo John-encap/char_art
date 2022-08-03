@@ -20,15 +20,22 @@ namespace IFSconnectChallange
         public void Form2_Load(object sender, EventArgs e)
         {
             
-            richTextBox1.Text = "hello";
-            richTextBox1.Font = new Font(FontFamily.GenericSerif, 32);
+            
             
         }
 
+
+        //default draw button -> Default_Draw_Click ->
         public void load_text_box(String pixelString, float fontsize)
         {
             richTextBox1.Text = pixelString;
             richTextBox1.Font = new Font(FontFamily.GenericSerif, fontsize);
+        }
+        //draw button -> Draw_Click ->
+        public void load_text_box_sp(String pixelString, float fontsize, String font)
+        {
+            richTextBox1.Text = pixelString;
+            richTextBox1.Font = new Font(font, fontsize);
         }
     }
 }

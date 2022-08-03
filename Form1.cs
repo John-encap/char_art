@@ -22,16 +22,46 @@ namespace IFSconnectChallange
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+           //
+           foreach(FontFamily font in FontFamily.Families)
+            {
+                fontFam.Items.Add(font.Name.ToString());
+            }
             
+        }
+
+        private void Draw_Click(object sender, EventArgs e)
+        {
+            String inputFile = @input.Text;
+            String outputFile = @output.Text;
+            String font = fontFam.Text;
+            float fontSize = 8;
+            char startChar = char.Parse(strtChar.Text);
+            char endChar = char.Parse(enChar.Text);
+            
+
+            string[] Character_range = charSet(startChar, endChar);
+
+
+
+            String[] pixelString = { getPixelValueString(loadImage(inputFile), Character_range, Character_range.Length) };
+            drawTextFile(pixelString, outputFile);
+
+
+
+
+            Form2 form = new Form2();
+            form.Show();
+            
+            form.load_text_box_sp(pixelString[0], fontSize, font);
         }
 
         private void Default_Draw_Click(object sender, EventArgs e)
         {
             
-            String inputFile = @"C:\Users\GihanS\Desktop\baby.jpg";
-            String outputFile = @"C:\Users\GihanS\Desktop\baby.txt";
-            FontFamily font = "Consolas";
+            String inputFile = @input.Text;
+            String outputFile = @output.Text;
+            //FontFamily font = "Consolas";
             float fontSize = 8;
             char startChar = '@';
             char endChar = ' ';
@@ -97,7 +127,29 @@ namespace IFSconnectChallange
             File.WriteAllLines(outputFile, pixelString);
         }
 
-        
+        private String[] charSet(char fChar,char enChar)
+        {
+            int first = (char)fChar;
+            int end = (char)enChar;
+            int range = end - first + 1;
+            String[] arr = new String[range];
+            if (range > 0)
+            {
+                for(int i= 0; i < range; i++)
+                {
+                    arr[i] = ((char)(i + first)).ToString();
+                }
+            }
+            else
+            {
+                for (int i = 0; i < range; i++)
+                {
+                    arr[i] = ((char)(i + enChar)).ToString();
+                }
+            }
+            
+            return arr;
+        }
 
         
     }

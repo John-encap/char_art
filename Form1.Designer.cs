@@ -41,14 +41,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.fontFaml = new System.Windows.Forms.Label();
             this.fontSz = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.input = new System.Windows.Forms.TextBox();
             this.enChar = new System.Windows.Forms.TextBox();
             this.strtChar = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.output = new System.Windows.Forms.TextBox();
             this.fontFam = new System.Windows.Forms.ComboBox();
             this.fontSize = new System.Windows.Forms.ComboBox();
             this.Default_Draw = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +66,7 @@
             this.Draw.TabIndex = 0;
             this.Draw.Text = "Draw";
             this.Draw.UseVisualStyleBackColor = false;
+            this.Draw.Click += new System.EventHandler(this.Draw_Click);
             // 
             // contextMenuStrip1
             // 
@@ -135,12 +138,13 @@
             this.fontSz.TabIndex = 16;
             this.fontSz.Text = "Font size :";
             // 
-            // textBox1
+            // input
             // 
-            this.textBox1.Location = new System.Drawing.Point(227, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(445, 23);
-            this.textBox1.TabIndex = 17;
+            this.input.Location = new System.Drawing.Point(227, 100);
+            this.input.Name = "input";
+            this.input.PlaceholderText = "C:\\Users\\GihanS\\Desktop\\baby.jpg";
+            this.input.Size = new System.Drawing.Size(445, 23);
+            this.input.TabIndex = 17;
             // 
             // enChar
             // 
@@ -156,12 +160,13 @@
             this.strtChar.Size = new System.Drawing.Size(49, 23);
             this.strtChar.TabIndex = 19;
             // 
-            // textBox4
+            // output
             // 
-            this.textBox4.Location = new System.Drawing.Point(227, 138);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(445, 23);
-            this.textBox4.TabIndex = 20;
+            this.output.Location = new System.Drawing.Point(227, 138);
+            this.output.Name = "output";
+            this.output.PlaceholderText = "C:\\Users\\GihanS\\Desktop\\baby.txt";
+            this.output.Size = new System.Drawing.Size(445, 23);
+            this.output.TabIndex = 20;
             // 
             // fontFam
             // 
@@ -174,6 +179,21 @@
             // fontSize
             // 
             this.fontSize.FormattingEnabled = true;
+            this.fontSize.Items.AddRange(new object[] {
+            "8",
+            "10",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20",
+            "22",
+            "24",
+            "26",
+            "28",
+            "36",
+            "48",
+            "72"});
             this.fontSize.Location = new System.Drawing.Point(227, 274);
             this.fontSize.Name = "fontSize";
             this.fontSize.Size = new System.Drawing.Size(49, 23);
@@ -198,18 +218,38 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(572, 409);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 15);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Fill all input fields";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(375, 409);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(174, 15);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Fill only 1st and 2nd input fields";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 448);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Default_Draw);
             this.Controls.Add(this.fontSize);
             this.Controls.Add(this.fontFam);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.output);
             this.Controls.Add(this.strtChar);
             this.Controls.Add(this.enChar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.input);
             this.Controls.Add(this.fontSz);
             this.Controls.Add(this.fontFaml);
             this.Controls.Add(this.label3);
@@ -241,13 +281,15 @@
         private Label label3;
         private Label fontFaml;
         private Label fontSz;
-        private TextBox textBox1;
+        private TextBox input;
         private TextBox enChar;
         private TextBox strtChar;
-        private TextBox textBox4;
+        private TextBox output;
         private ComboBox fontFam;
         private ComboBox fontSize;
         private Button Default_Draw;
         private FileSystemWatcher fileSystemWatcher1;
+        private Label label6;
+        private Label label4;
     }
 }
