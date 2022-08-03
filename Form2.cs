@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace IFSconnectChallange
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        public void Form2_Load(object sender, EventArgs e)
+        {
+            
+            richTextBox1.Text = "hello";
+            richTextBox1.Font = new Font(FontFamily.GenericSerif, 32);
+            
+        }
+
+        public void load_text_box(String pixelString, float fontsize)
+        {
+            richTextBox1.Text = pixelString;
+            richTextBox1.Font = new Font(FontFamily.GenericSerif, fontsize);
+        }
+    }
+}
